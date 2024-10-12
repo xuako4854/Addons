@@ -1,0 +1,39 @@
+{
+	"format_version": "1.10.0",
+	"minecraft:client_entity": {
+		"description": {
+			"identifier": "ded:revil",
+			"materials": {
+				"default": "entity_emissive_alpha"
+			},
+			"textures": {
+				"default": "textures/entity/revil"
+			},
+			"geometry": {
+				"default": "geometry.revil"
+			},
+			"spawn_egg": {
+				"base_color": "#d37504",
+				"overlay_color": "#6ba700"
+			},
+			"animations": {
+				"look_at_target": "animation.common.look_at_target",
+				"idle": "animation.idle.revil",
+				"walk": "animation.walk.revil",
+				"attack": "animation.attack.revil",
+				"controller": "controller.animation.revil"
+			},
+			"scripts": {
+				"pre_animation": [
+					"variable.tcos0 = (Math.cos(query.modified_distance_moved * 38.17) * query.modified_move_speed / variable.gliding_speed_value) * 57.3;"
+				],
+				"animate": [
+					"controller",
+					"look_at_target"
+				]
+			},
+			"render_controllers": ["controller.render.default"],
+			"enable_attachables": true
+		}
+	}
+}

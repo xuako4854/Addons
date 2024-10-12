@@ -1,0 +1,5 @@
+
+tile.oh:spooky_golem_head.name=§6Spooky Golem Head
+entity.oh:spooky_golem.name=§6Spooky Golem§r
+entity.oh:despawn.name=§6Spooky Golem§r
+item.spawn_egg.entity.oh:spooky_golem.name=§6Spawn §2Spooky §6Golem

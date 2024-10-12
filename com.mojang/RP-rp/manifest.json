@@ -1,0 +1,42 @@
+{
+	"format_version": 2,
+	"metadata": {
+		"authors": [
+			"§l§4SPIDERBIMBO346"
+		],
+		"generated_with": {
+			"bridge": [
+				"2.7.37"
+			],
+			"dash": [
+				"0.11.7"
+			]
+		}
+	},
+	"header": {
+		"name": "§l§cREVIL BOSS",
+		"description": "ADDON HECHO POR SPIDERBIMBO CON MODELO DE FORZAKEN NEON",
+		"min_engine_version": [
+			1,
+			21,
+			0
+		],
+		"uuid": "560db7e0-5049-45aa-b69c-43d6ee61c8f3",
+		"version": [
+			1,
+			0,
+			1
+		]
+	},
+	"modules": [
+		{
+			"type": "resources",
+			"uuid": "9bfd5d9b-15c5-4ded-9849-2f2c90823e03",
+			"version": [
+				1,
+				0,
+				0
+			]
+		}
+	]
+}
