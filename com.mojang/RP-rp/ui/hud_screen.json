@@ -1,0 +1,171 @@
+//boss bar
+{
+	"boss_health_panel": {
+		"type": "panel",
+		"size": [ 182, 20 ],
+		"anchor_from": "top_middle",
+		"anchor_to": "top_middle",
+		"$progress_bar_collection": "boss_bars",
+		"controls": [
+			{
+				"boss_name@boss_name_panel": {}
+			},
+			{
+				"progress_bar_for_collections@common.progress_bar_for_collections": {
+					"offset": [ 0, 10 ]
+				}
+			},
+			//Crea el binding BossName
+			{
+				"skull_health@skull_health": {  
+				"offset": [ 0, -16 ],
+				"layer": 2,
+				"bindings": [
+					//Crea el binding BossName
+					{
+						"binding_name": "#bossName",
+						"binding_type": "collection",
+						"binding_collection_name": "boss_bars" 
+					},
+					//Condicion para que solo funcione con cierto nombre de la bossbar
+					{
+						"binding_type": "view",
+						"source_property_name": "(#bossName = '§l§cREVIL')", 
+						"target_property_name": "#visible"
+					}
+				]
+			}
+		}
+	],
+		"bindings": [
+			{
+				"binding_name": "#bar_visible",
+				"binding_type": "collection",
+				"binding_collection_name": "boss_bars",
+				"binding_name_override": "#visible"
+			},
+			{
+				"binding_name": "#bossName",
+				"binding_type": "collection",
+				"binding_collection_name": "boss_bars"
+			}
+		]
+	},
+	//Skull bossbar panel, toda la bossbar
+	"skull_health": { 
+		"type": "panel",
+		"anchor_from": "top_middle",
+		"anchor_to": "top_middle",
+		"size": [
+			240,
+			61
+		],
+		"bindings": [
+			{
+				"binding_name": "(#bossName = '§l§cREVIL')",
+				"binding_type": "collection",
+				"binding_collection_name": "boss_bars",
+				"binding_name_override": "#visible"
+			}
+		],
+		"controls": [
+			{
+				"empty_skull_health@empty_skull_health": {
+					"offset": [ 0, 0 ],
+					"layer": 1,
+					"keep_ratio": false
+				}
+			},
+			{
+				"filled_skull_bossbar@filled_skull_bossbar": {
+					"offset": [ 0, 0 ],
+					"layer": 2,
+					"keep_ratio": false
+				}
+			},
+			{
+				"overlay_skull_bossbar@overlay_skull_bossbar": {
+					"offset": [ 0, 0 ],
+					"layer": 3,
+					"keep_ratio": false
+				}
+			},
+			{
+				"skull_image@skull_image": {
+					"layer": 4,
+					"offset": [ 5, 22 ],
+					"size": [ 240, 80 ],
+					"keep_ratio": true,
+					"controls": [
+						{
+							"skull_eye_image@skull_eye_image": {
+								"layer": 5,
+								"keep_ratio": true,
+								"alpha": "@skull_eye_opacity_animation"
+							}
+						}
+					]
+				}
+			}
+		]
+	},
+	//Barra de salud
+	"filled_skull_bossbar@filled_skull_health": { 
+		"clip_pixelperfect": true, 
+		"bindings": [
+			{
+				"binding_name": "#progress_percentage",
+				"binding_name_override": "#clip_ratio",
+				"binding_type": "collection",
+				"binding_collection_name": "$progress_bar_collection"
+			}
+		]
+	},
+	//Skull bossbar imagenes
+	"filled_skull_health": {
+		"type": "image",
+		"texture": "textures/ui/bossbars/revil/filled_health",
+		"clip_direction": "left",
+		"bindings": [
+			{
+				"binding_name": "#progress_percentage",
+				"binding_name_override": "#clip_ratio"
+			}
+		]
+	},
+	"empty_skull_health": {
+		"type": "image",
+		"texture": "textures/ui/bossbars/revil/empty_health"
+	},
+	"empty_panel": {
+		"type": "image",
+		"texture": "textures/ui/bossbars/revil/empty_panel"
+	},
+	"overlay_skull_bossbar": {
+		"type": "image",
+		"texture": "textures/ui/bossbars/revil/overlay"
+	},
+	"skull_image": {
+		"type": "image",
+		"texture": "textures/ui/bossbars/revil/skull"
+	},
+	"skull_eye_image": {
+		"type": "image",
+		"texture": "textures/ui/bossbars/revil/skull_eye"
+	},
+	//Skull bossbar animations
+	"skull_eye_opacity_animation": {
+		"anim_type": "alpha",
+		"from": 1.0,
+		"to": 0.0,
+		"duration": 10.0, 
+		"next": "@skull_eye_opacity_reverse_animation"
+	},
+	"skull_eye_opacity_reverse_animation": {
+		"anim_type": "alpha",
+		"from": 0.0,
+		"to": 10.0,
+		"duration": 1.0,
+		"next": "@skull_eye_opacity_animation"
+	}
+}
